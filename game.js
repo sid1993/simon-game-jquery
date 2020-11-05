@@ -13,7 +13,7 @@ $("*").keydown(function () {
 
 //Playing the game
 $(".btn").click(function () {
-	if (level != 0 && currentSequence.length != 0) {
+	if (level != 0) {
 		if (this.id != currentSequence[0]) {
 			soundFx("sounds/wrong.mp3");
 			currentSequence = [];
@@ -35,10 +35,7 @@ function addSequence() {
 	var nextSequence = colors[Math.floor(Math.random() * 4)];
 	soundFx("sounds/" + nextSequence + ".mp3");
 	levelSequence.push(nextSequence);
-	$("#" + nextSequence).addClass("pressed");
-	setTimeout(function () {
-		$("#" + nextSequence).removeClass("pressed");
-	}, 200);
+	animate(nextSequence);
 }
 
 //level up
@@ -52,4 +49,11 @@ function levelUp() {
 function soundFx(soundPath) {
 	var sound = new Audio(soundPath);
 	sound.play();
+}
+
+function animate(sequence) {
+	$("#" + sequence).addClass("pressed");
+	setTimeout(function () {
+		$("#" + sequence).removeClass("pressed");
+	}, 200);
 }
