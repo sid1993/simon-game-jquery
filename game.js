@@ -51,6 +51,7 @@ function soundFx(soundPath) {
 	sound.play();
 }
 
+//animate
 function animate(sequence) {
 	$("#" + sequence).addClass("pressed");
 	setTimeout(function () {
