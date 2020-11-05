@@ -7,6 +7,7 @@ var level = 0;
 // start the game
 $("*").keydown(function () {
 	if (level == 0) {
+		$("body").removeClass("game-over");
 		levelUp();
 	}
 });
@@ -19,6 +20,7 @@ $(".btn").click(function () {
 			currentSequence = [];
 			levelSequence = [];
 			level = 0;
+			$("body").addClass("game-over");
 			$("#level-title").text("Press Any Key to restart");
 		} else {
 			soundFx("sounds/" + currentSequence[0] + ".mp3");
